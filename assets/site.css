@@ -228,3 +228,55 @@ header{position:relative;z-index:1}
 .mu-history-grid img{display:block;width:100%;height:auto;aspect-ratio:0.58;object-fit:cover}
 .mu-history-note{color:#59554f;font-size:.83rem!important}
 @media(max-width:750px){.mu-history-gallery{margin:35px -20px;padding:18px 14px}.mu-history-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.mu-comeback-chapter{padding:20px 0}}
+
+
+/* v1.7.0 — Lillian-approved Option B; monochrome editorial canvas */
+:root{--paper:#fff;--ink:#242424;--muted:#555;--line:#e5e5e5;--rust:#8c6a37;--dark:#0c0c0c;--white:#fff;--accent:#b49a67}
+body,header{background:#fff;color:#242424}
+a:hover{color:#72551f}
+a:focus-visible,button:focus-visible{outline:3px solid #795a20}
+.mu-hero{background:#fff!important;color:#0c0c0c!important}
+.mu-hero h1,.mu-hero h1 span{color:#0c0c0c!important}
+.mu-hero .mu-hero-copy p,.mu-hero .mu-hero-deck,.mu-hero .mu-hero-strap{color:#242424!important}
+.mu-hero .btn.outline{color:#0c0c0c!important;border-color:#0c0c0c!important}
+.mu-hero .btn:not(.outline),.btn:not(.outline){background:#171717;color:#fff}
+.mu-kicker,.mu-eyebrow,.mu-photo-label,.mu-image-kind{color:#77613d!important}
+.mu-story-index,.mu-section-lead,.mu-history-gallery,.mu-publications a,.mu-history-grid a,.mu-book-promo{background:#f7f7f7}
+.mu-story-index,.mu-section-lead{border-left-color:#b49a67}
+.mu-history-gallery,.mu-field-feature,.mu-field-strip,.mu-publications a{border-top-color:#b49a67}
+.mu-story-index a{color:#51401e}
+.mu-history-grid a{border-color:#e5e5e5;background:#fff}
+.mu-biography h2,.mu-comeback-chapter,.mu-inline-illustration,.mu-video-inline{border-color:#e5e5e5}
+.mu-biography,.mu-biography strong{color:#202020}
+.mu-book-promo{display:grid;grid-template-columns:minmax(185px,.68fr) minmax(0,1.7fr);gap:clamp(20px,3vw,42px);align-items:start;padding:clamp(22px,3vw,42px);margin:56px -36px 24px;border-top:3px solid #b49a67}
+.mu-book-visual{position:sticky;top:calc(var(--support-live-height,76px) + 28px)}
+.mu-book-cover-art{aspect-ratio:5/8;display:flex;flex-direction:column;padding:clamp(16px,3vw,32px);color:#fff;background:linear-gradient(155deg,#090909,#303030 58%,#151515);box-shadow:13px 15px 22px #0002;border-left:6px solid #b49a67;max-width:320px;justify-content:space-between}
+.mu-book-overline{font:700 clamp(.65rem,.8vw,.84rem)/1.3 Helvetica,Arial,sans-serif;letter-spacing:.13em}
+.mu-book-title-art{font:800 clamp(1.5rem,2.7vw,3.5rem)/.98 Helvetica,Arial,sans-serif;letter-spacing:-.06em;overflow-wrap:anywhere}
+.mu-book-rule{height:2px;background:#b49a67;width:45%}
+.mu-book-author-art{font:700 .8rem/1.5 Helvetica,Arial,sans-serif;letter-spacing:.14em}
+.mu-book-copy{font-family:Georgia,Cambria,serif}
+.mu-book-copy h2{font:800 clamp(2.1rem,4vw,3.3rem)/1.04 Helvetica,Arial,sans-serif;border:0;margin:9px 0 20px;padding:0}
+.mu-book-copy p{font-size:1rem;line-height:1.7}
+.mu-book-hook{font-size:clamp(1.14rem,2vw,1.45rem)!important;font-weight:650;line-height:1.45!important}
+.mu-book-closing{font-family:Helvetica,Arial,sans-serif;font-weight:800;letter-spacing:.08em}
+.mu-book-buy{display:inline-block;padding:15px 21px;background:#121212;color:#fff;text-decoration:none;font:700 .94rem/1.4 Helvetica,Arial,sans-serif}
+.mu-book-buy:hover{background:#414141;color:#fff}
+.mu-book-meta{font:.76rem/1.5 Helvetica,Arial,sans-serif!important;color:#666}
+.mu-video-inline{margin:38px 0 46px;padding:25px 0;border-top:2px solid #b49a67;border-bottom:1px solid #ddd}
+.mu-video-inline h3{font:800 clamp(1.5rem,3.5vw,2.35rem)/1.1 Helvetica,Arial,sans-serif}
+.mu-video-frame{aspect-ratio:16/9;position:relative;background:#0c0c0c;width:100%;max-width:960px}
+.mu-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mu-video-link{font:.9rem/1.5 Helvetica,Arial,sans-serif}
+.mu-history-gallery>p{font-size:1.04rem;line-height:1.7}
+.mu-history-note{font-size:1rem!important;line-height:1.7!important;color:#333!important}
+.mu-signature-lockup{min-width:0;max-width:min(56vw,630px);display:flex;flex-direction:column;align-items:center;flex:1 1 460px}
+.mu-signature-lockup .brand{align-self:center}
+.mu-signature-quote{margin:3px 0 0!important;text-align:center;color:#383838;font:italic clamp(.72rem,.9vw,.92rem)/1.45 Georgia,'Times New Roman',serif;letter-spacing:.005em;max-width:100%;white-space:nowrap}
+.mast{max-width:1320px;gap:clamp(18px,3vw,45px)}
+.mast nav{flex:0 0 auto}
+.support-top{background:#171717}
+.support-top__button{filter:grayscale(1)}
+@media(max-width:1050px){.mu-signature-lockup{max-width:min(100%,650px)}.mast{flex-direction:column;gap:13px}.mast nav{justify-content:center}.mu-signature-quote{font-size:clamp(.72rem,1.6vw,.9rem)}}
+@media(max-width:750px){.mu-book-promo{grid-template-columns:1fr;margin:36px -20px 22px;padding:23px 17px}.mu-book-visual{position:static;margin:auto}.mu-book-cover-art{width:min(68vw,275px);min-height:320px}.mu-book-title-art{font-size:clamp(2rem,9vw,3.3rem)}.mu-signature-quote{white-space:normal;font-size:clamp(.77rem,2.5vw,.89rem);max-width:92vw}.mu-signature-lockup{max-width:100%}.mu-video-inline{margin:30px 0}}
+@media(max-width:360px){.mu-signature-quote{font-size:.77rem;max-width:95vw}}
