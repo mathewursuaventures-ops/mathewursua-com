@@ -250,11 +250,6 @@ a:focus-visible,button:focus-visible{outline:3px solid #795a20}
 .mu-biography,.mu-biography strong{color:#202020}
 .mu-book-promo{display:grid;grid-template-columns:minmax(185px,.68fr) minmax(0,1.7fr);gap:clamp(20px,3vw,42px);align-items:start;padding:clamp(22px,3vw,42px);margin:56px -36px 24px;border-top:3px solid #b49a67}
 .mu-book-visual{position:sticky;top:calc(var(--support-live-height,76px) + 28px)}
-.mu-book-cover-art{aspect-ratio:5/8;display:flex;flex-direction:column;padding:clamp(16px,3vw,32px);color:#fff;background:linear-gradient(155deg,#090909,#303030 58%,#151515);box-shadow:13px 15px 22px #0002;border-left:6px solid #b49a67;max-width:320px;justify-content:space-between}
-.mu-book-overline{font:700 clamp(.65rem,.8vw,.84rem)/1.3 Helvetica,Arial,sans-serif;letter-spacing:.13em}
-.mu-book-title-art{font:800 clamp(1.5rem,2.7vw,3.5rem)/.98 Helvetica,Arial,sans-serif;letter-spacing:-.06em;overflow-wrap:anywhere}
-.mu-book-rule{height:2px;background:#b49a67;width:45%}
-.mu-book-author-art{font:700 .8rem/1.5 Helvetica,Arial,sans-serif;letter-spacing:.14em}
 .mu-book-copy{font-family:Georgia,Cambria,serif}
 .mu-book-copy h2{font:800 clamp(2.1rem,4vw,3.3rem)/1.04 Helvetica,Arial,sans-serif;border:0;margin:9px 0 20px;padding:0}
 .mu-book-copy p{font-size:1rem;line-height:1.7}
@@ -278,5 +273,104 @@ a:focus-visible,button:focus-visible{outline:3px solid #795a20}
 .support-top{background:#171717}
 .support-top__button{filter:grayscale(1)}
 @media(max-width:1050px){.mu-signature-lockup{max-width:min(100%,650px)}.mast{flex-direction:column;gap:13px}.mast nav{justify-content:center}.mu-signature-quote{font-size:clamp(.72rem,1.6vw,.9rem)}}
-@media(max-width:750px){.mu-book-promo{grid-template-columns:1fr;margin:36px -20px 22px;padding:23px 17px}.mu-book-visual{position:static;margin:auto}.mu-book-cover-art{width:min(68vw,275px);min-height:320px}.mu-book-title-art{font-size:clamp(2rem,9vw,3.3rem)}.mu-signature-quote{white-space:normal;font-size:clamp(.77rem,2.5vw,.89rem);max-width:92vw}.mu-signature-lockup{max-width:100%}.mu-video-inline{margin:30px 0}}
+@media(max-width:750px){.mu-book-promo{grid-template-columns:1fr;margin:36px -20px 22px;padding:23px 17px}.mu-book-visual{position:static;margin:auto}.mu-signature-quote{white-space:normal;font-size:clamp(.77rem,2.5vw,.89rem);max-width:92vw}.mu-signature-lockup{max-width:100%}.mu-video-inline{margin:30px 0}}
 @media(max-width:360px){.mu-signature-quote{font-size:.77rem;max-width:95vw}}
+
+
+/* v1.7.2 — Lillian Option C: editorial monochrome + steel gray (approved 2026-10-31) */
+:root{--paper:#fff;--ink:#262B2E;--muted:#596368;--line:#CDD2D4;--rust:#68757B;--dark:#0A0C0D;--white:#fff;--accent:#68757B}
+body,header,.mast,.portfolio-page{background:#fff!important;color:#262B2E!important}
+.mu-hero{background:#fff!important;color:#0A0C0D!important}
+.mu-hero h1,.mu-hero h1 span{color:#0A0C0D!important}
+.mu-hero .mu-hero-copy p,.mu-hero .mu-hero-deck,.mu-hero .mu-hero-strap{color:#262B2E!important}
+.mu-hero .btn.outline{color:#0A0C0D!important;border-color:#0A0C0D!important}
+.mu-kicker,.mu-eyebrow,.mu-photo-label,.mu-image-kind,.mu-inline-illustration figcaption strong{color:#455359!important}
+.mu-story-index,.mu-section-lead,.mu-history-gallery,.mu-publications a,.mu-history-grid a,.mu-book-promo{background:#F3F4F4!important}
+.mu-history-grid a,.mu-book-promo{border-color:#CDD2D4!important}
+.mu-story-index,.mu-section-lead{border-left-color:#68757B!important}
+.mu-field-feature,.mu-field-strip,.mu-history-gallery,.mu-publications a,.mu-video-inline{border-top-color:#68757B!important}
+.mu-story-index a{color:#3D4A50!important}
+.mu-biography h2,.mu-comeback-chapter,.mu-inline-illustration,.mu-more{border-color:#CDD2D4!important}
+.mu-field-description .mu-kicker,.mu-photo-label{color:#455359!important}
+.mu-field-feature .mu-photo-label{color:#455359!important}
+.mu-book-promo{border-top:3px solid #68757B!important}
+.mu-book-visual{min-width:0;display:flex;align-items:flex-start;justify-content:center}
+.mu-book-cover-link{display:block;width:min(100%,340px);text-decoration:none}
+.mu-book-cover-image{display:block;width:100%;height:auto;object-fit:contain;border:1px solid #CDD2D4;box-shadow:0 10px 22px #0002;background:#fff}
+.mu-book-cover-link:focus-visible{outline:3px solid #455359;outline-offset:5px}
+.mu-book-buy{background:#262B2E!important;color:#fff!important}
+.mu-book-buy:hover{background:#465359!important;color:#fff!important}
+.mu-signature-quote{color:#262B2E!important}
+header nav a[aria-current=page],nav a[aria-current=page]{text-decoration-color:#68757B!important}
+a:hover{color:#465359}
+a:focus-visible,button:focus-visible{outline:3px solid #455359!important;outline-offset:3px}
+.support-top{background:#171B1D!important;border-color:#68757B!important}
+.support-top__heart,.support-top__message strong{color:#DEE3E5!important}
+.support-top__button{filter:grayscale(1)}
+.mu-publications a{border-top-color:#68757B!important}
+.mu-video-inline{border-bottom-color:#CDD2D4!important}
+@media(prefers-color-scheme:dark){body,header,.mast,.portfolio-page{background:#fff!important;color:#262B2E!important}}
+@media(max-width:750px){.mu-book-cover-link{width:min(68vw,290px)}.mu-book-cover-image{max-height:none}}
+
+/* v1.7.2 RC3 — compact, labeled platform links; editorial cards removed. */
+.mu-social-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;padding:20px 0 18px;margin:15px 0 18px;border-top:1px solid #CDD2D4;border-bottom:1px solid #CDD2D4;scroll-margin-top:calc(var(--support-live-height,0px) + 22px)}
+.mu-social-link{display:inline-flex;align-items:center;gap:7px;min-height:40px;color:#262B2E;text-decoration:none;font:600 .88rem/1.4 Helvetica Neue,Helvetica,Arial,sans-serif}
+.mu-social-link img{display:block;width:22px;height:22px;flex:none;object-fit:contain}
+.mu-social-platform{font-weight:750}
+.mu-social-label{color:#455359;font-size:.81rem;font-weight:500}
+.mu-social-label:before{content:"·";margin-right:7px;color:#68757B}
+.mu-social-link:hover .mu-social-label,.mu-social-link:hover .mu-social-platform{text-decoration:underline;text-underline-offset:3px}
+.mu-social-link:focus-visible{outline:3px solid #455359;outline-offset:4px}
+@media(max-width:750px){.mu-social-links{gap:5px 16px}.mu-social-link{font-size:.81rem}.mu-social-label{font-size:.76rem}}
+@media(max-width:420px){.mu-social-links{align-items:flex-start;flex-direction:column;gap:5px}.mu-social-link{min-height:36px}}
+
+
+/* v1.7.2 RC4 — merge of a7821b7 homepage hotfix, applied to BOTH public pages.
+   Donation ribbon remains sticky on scroll without obscuring the masthead.
+   This CSS supersedes the earlier viewport-fixed ribbon rules above. */
+body { padding-top: 0 !important; }
+.support-top {
+  position: sticky !important;
+  inset: auto !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+}
+html { scroll-padding-top: calc(var(--support-live-height, 0px) + 20px) !important; }
+header { position: relative; z-index: 1; }
+header .mast {
+  padding-top: clamp(26px, 3vw, 42px) !important;
+  padding-bottom: clamp(26px, 3vw, 42px) !important;
+}
+.mu-signature-lockup { padding-block: 4px; }
+.mu-signature-lockup .brand--signature img { display: block; max-width: 100%; height: auto; }
+.mu-hero .mu-hero-strap, .mu-hero .mu-hero-strap span { color: #25292b !important; }
+@media (max-width: 650px) {
+  header .mast { padding-top: 22px !important; padding-bottom: 26px !important; }
+}
+/* Last-resort, accessible text/graphic display when both local and mirror images fail. */
+.mu-hero-art.mu-art-unavailable::before {
+  content: 'Disaster Images℠  ·  Documentary photography and public records';
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  padding: 2rem;
+  border: 1px solid #dedede;
+  background: #f5f5f5;
+  color: #25292b;
+  font: 700 clamp(1.1rem, 2vw, 1.6rem)/1.4 Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.mu-signature-text-fallback {
+  display: block;
+  color: #25292b;
+  font: 750 clamp(1.3rem, 2.2vw, 2rem)/1.2 Helvetica, Arial, sans-serif;
+  letter-spacing: -.035em;
+}
+@media (min-width: 751px) and (max-width: 900px) {
+  /* Preserve generous desktop card margins but eliminate the 768px overflow. */
+  .mu-book-promo, .mu-history-gallery { margin-left: 0; margin-right: 0; }
+}

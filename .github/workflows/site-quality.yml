@@ -1,0 +1,20 @@
+name: Site quality checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  inspect-static-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test requirements
+        run: python -m pip install --disable-pip-version-check beautifulsoup4 pillow
+      - name: Validate website files and source data
+        run: python .github/scripts/site_preflight.py
