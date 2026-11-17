@@ -1,0 +1,65 @@
+name: Preserve permanent signature image
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: '15 */12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-repository-asset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert signature URL source is unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          asset="assets/signature-header.png"
+          expected="8317c7e1cc776249f5b9ffa7c6dc864fb7e89c7f"
+          if [[ ! -f "$asset" ]]; then
+            echo "::error file=$asset::Permanent signature asset is missing"
+            exit 1
+          fi
+          actual="$(git hash-object "$asset")"
+          if [[ "$actual" != "$expected" ]]; then
+            echo "::error file=$asset::Permanent signature image bytes were modified: $actual != $expected"
+            exit 1
+          fi
+          mime="$(file --mime-type --brief "$asset")"
+          if [[ "$mime" != "image/png" ]]; then
+            echo "::error file=$asset::Expected image/png, got $mime"
+            exit 1
+          fi
+          if [[ ! -f CNAME ]] || [[ "$(tr -d '\r\n' < CNAME)" != "mathewursua.com" ]]; then
+            echo "::error file=CNAME::Custom domain changed or missing"
+            exit 1
+          fi
+          echo "Verified original image, Git blob $actual, image/png, and CNAME"
+
+  verify-public-url:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: verify-repository-asset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert live URL serves original PNG bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://mathewursua.com/assets/signature-header.png"
+          expected="8317c7e1cc776249f5b9ffa7c6dc864fb7e89c7f"
+          curl --fail --silent --show-error --location --max-time 30 --retry 2                --retry-all-errors --output /tmp/signature-header.png "$url"
+          mime="$(file --mime-type --brief /tmp/signature-header.png)"
+          actual="$(git hash-object /tmp/signature-header.png)"
+          if [[ "$mime" != "image/png" || "$actual" != "$expected" ]]; then
+            echo "::error::Public signature endpoint does not serve the approved original PNG ($mime/$actual)"
+            exit 1
+          fi
+          echo "Public image endpoint OK: $url ($mime, Git blob $actual)"
