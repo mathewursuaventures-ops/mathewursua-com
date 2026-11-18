@@ -59,7 +59,7 @@ jobs:
           old="check('sitemap only published canonicals',urls==list(canonicals.values()),str(urls))"
           new="public_letter_url=\"https://mathewursua.com/assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf\"\npublic_letter_path=ROOT/\"assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf\"\ncheck('sitemap canonical pages plus approved public PDF',urls==list(canonicals.values())+[public_letter_url],str(urls))\ncheck('public Grace letter exists and matches verified SHA-256',public_letter_path.is_file() and hashlib.sha256(public_letter_path.read_bytes()).hexdigest()==\"40f354c6aa4bc1216dc57933491ba3abe89f914a227747732007c0354acd185e\",str(public_letter_path))"
           assert old in check, 'Unexpected site preflight changed: refuse to modify.'
-          check_file.write_text(check.replace(old,new))
+          check_file.write_text(check.replace(old,new.replace('\n','\n ')))
           pub=root/'assets/public'
           pub.mkdir(parents=True,exist_ok=True)
           (pub/'README.md').write_text('''# Public asset downloads
