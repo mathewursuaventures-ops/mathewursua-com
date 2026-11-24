@@ -140,7 +140,7 @@ for a in nf.select('a[href]'):
  elif href.startswith('/') and href!='/':
   local=href[1:].split('#',1)[0]
   if local: check('frontiers absolute link '+href,(ROOT/local).is_file())
- elif not href.startswith(('https:','http:','mailto:')):
+ elif href!='/' and not href.startswith(('https:','http:','mailto:')):
   local=href.split('#',1)[0]
   if local: check('frontiers relative link '+href,(ROOT/local).is_file())
 check('frontiers CSS',nf.find('link',href='assets/new-frontiers.css') is not None and (ROOT/'assets/new-frontiers.css').is_file())
