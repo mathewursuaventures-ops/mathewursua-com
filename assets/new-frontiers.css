@@ -1,0 +1,58 @@
+/* New Frontiers in Social Justice — site-scoped crimson editorial overlay. */
+/* All new selectors are prefixed nf- or mu-frontiers- to leave the existing site undisturbed. */
+:root {--nf-crimson:#C92736;--nf-red-light:#FF777D;--nf-oxblood:#941D29;--nf-charcoal:#121212;--nf-ivory:#F1EAE4;}
+body.nf-body{background:var(--nf-charcoal);color:var(--nf-ivory)}
+body.nf-body header{background:var(--paper);color:#14242b}
+body.nf-body .support-top{color:#16252b}
+body.nf-body footer{margin-top:0}
+body.nf-body a:focus-visible{outline-color:#ff777d}
+.nf-page{background:var(--nf-charcoal);color:var(--nf-ivory)}
+.nf-hero{padding:clamp(2rem,5vw,4.5rem) 20px 2rem;text-align:center;background:linear-gradient(160deg,#090808 40%,#261014 100%);border-bottom:1px solid #50242a}
+.nf-hero-intro{max-width:900px;margin:auto}
+.nf-eyebrow{font:800 .7rem/1.5 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.2em;color:#ff8588}
+.nf-hero h1{font:700 clamp(2.5rem,7vw,6.2rem)/.98 Georgia,serif;letter-spacing:-.055em;max-width:100%;margin:1.2rem 0 1.2rem}
+.nf-hero h1 span{color:var(--nf-red-light)}
+.nf-hero-deck{font:400 clamp(1.1rem,1.8vw,1.5rem)/1.5 Georgia,serif;max-width:660px;margin:1rem auto;color:#eadeda}
+.nf-byline{font-size:.88rem;letter-spacing:.02em;color:#d4c6c2;margin:0 auto}
+.nf-hero-art{max-width:1180px;margin:2rem auto .4rem}
+.nf-hero-art img{display:block;max-width:100%;height:auto;aspect-ratio:1619/971;object-fit:contain;border:1px solid #4c272b}
+.nf-hero-art figcaption,.nf-chapter-art figcaption,.nf-book-image figcaption{margin:.6rem 0 0;color:#bcb1ac;font-size:.72rem;line-height:1.45;font-family:system-ui,sans-serif;text-align:right}
+.nf-internal-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.65rem 1.5rem;margin:auto;padding:1rem 18px;border-bottom:1px solid #3d292b;background:#1a1516}
+.nf-internal-nav a{font-size:.8rem;letter-spacing:.04em;color:#ffe7e7;text-decoration:none;border-bottom:1px solid #a3414a}
+.nf-internal-nav a:hover,.nf-internal-nav a:focus-visible{color:#fff;border-bottom-color:#fff}
+.nf-article{max-width:810px;margin:0 auto;padding:3.3rem 24px 5rem;font:400 1.06rem/1.87 system-ui,-apple-system,Segoe UI,sans-serif}
+.nf-article>*{max-width:100%}
+.nf-article p{max-width:75ch;margin:1.15em 0;overflow-wrap:break-word}
+.nf-article>p:first-child{font-family:Georgia,serif;font-style:italic;color:#c7bab4;font-size:1.13rem}
+.nf-article a{color:#ff9296;text-decoration-thickness:1px;text-underline-offset:3px}
+.nf-article strong{font-weight:750;color:#fff}
+.nf-article h1:not(.nf-chapter-kicker),.nf-article h2{font-size:clamp(1.8rem,3.5vw,2.55rem);line-height:1.16;letter-spacing:-.025em;margin:3rem 0 1.25rem;color:#fff}
+.nf-article h1.nf-chapter-kicker{scroll-margin-top:110px;color:#ff8a8d;font:800 .84rem/1.4 system-ui,sans-serif;letter-spacing:.22em;margin:4.5rem 0 .5rem;padding-top:2rem;border-top:1px solid #6e333a}
+.nf-article h1.nf-chapter-kicker + h2{margin-top:0}
+.nf-article h3{font-size:1.47rem;line-height:1.25;color:#ff8a90;margin:2.8rem 0 1rem}
+.nf-article blockquote{border-left:3px solid #c92736;padding-left:1.3rem;color:#eee3dd}
+.nf-article .nf-rule{border:0;border-top:1px solid #523139;margin:3.3rem 0}
+.nf-article li{padding:.2rem 0}
+.nf-chapter-art{margin:1.4rem -8vw 2.4rem;max-width:calc(100% + 16vw)}
+.nf-chapter-art img{display:block;width:100%;height:auto;border:1px solid #462a2b;border-radius:2px}
+.nf-book-image{float:right;margin:.2rem 0 1.5rem 1.6rem;width:175px;max-width:35%}
+.nf-book-image img{width:100%;height:auto;display:block;box-shadow:0 10px 24px #0009}
+.nf-book-image figcaption{text-align:center}
+.nf-continue{padding:3rem 24px 4rem;background:#21171a;border-top:1px solid #702b36;text-align:center}
+.nf-continue>*{margin-left:auto;margin-right:auto}
+.nf-continue h2{font-size:clamp(1.9rem,4vw,3rem);color:#f9f0ec}
+.nf-continue p:not(.nf-eyebrow){color:#cfc4bf}
+.nf-button{display:inline-block;border:1px solid #c92736;background:#a6212e;color:#fff;text-decoration:none;font:750 .86rem/1.3 system-ui,sans-serif;padding:14px 18px;margin:8px 5px 0}
+.nf-button--outline{background:transparent;border-color:#bb6068}
+.nf-button:hover{background:#d32e3c;color:#fff}
+/* Homepage teaser, deliberately compact below the hero rather than another full-height panel */
+.mu-frontiers-teaser{background:#161214;color:#f7eeea;border-top:3px solid #9b1d2b;border-bottom:1px solid #4c222b}
+.mu-frontiers-teaser__inner{max-width:1180px;margin:auto;padding:clamp(21px,3vw,36px) 24px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px}
+.mu-frontiers-teaser__eyebrow{color:#ff8b90;font:800 .69rem/1.5 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin:0 0 7px}
+.mu-frontiers-teaser h2{color:#fff;font-size:clamp(1.5rem,2.7vw,2.25rem);margin:0 0 7px}
+.mu-frontiers-teaser p{color:#e0d1ce;max-width:78ch;margin:0;font-size:.96rem;line-height:1.55}
+.mu-frontiers-teaser a{display:inline-block;padding:12px 16px;border:1px solid #b62636;color:#fff;background:#a52230;text-decoration:none;white-space:nowrap;font-size:.87rem;font-weight:750}
+.mu-frontiers-teaser a:hover{background:#d42d3e}
+@media(max-width:900px){.nf-chapter-art{margin-left:-4vw;margin-right:-4vw;max-width:calc(100% + 8vw)}}
+@media(max-width:650px){.nf-article{font-size:1rem;line-height:1.78;padding:2.2rem 20px 3rem}.nf-hero{padding-top:2rem}.nf-hero h1{font-size:clamp(2.25rem,9vw,3.5rem)}.nf-chapter-art{margin-left:0;margin-right:0;max-width:100%}.nf-book-image{float:none;max-width:150px;width:35%;margin:1rem auto 1.3rem}.mu-frontiers-teaser__inner{grid-template-columns:1fr;gap:14px}.mu-frontiers-teaser a{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.nf-page{scroll-behavior:auto}}
