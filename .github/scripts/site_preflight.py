@@ -146,8 +146,9 @@ for a in nf.select('a[href]'):
 check('frontiers CSS',nf.find('link',href='assets/new-frontiers.css') is not None and (ROOT/'assets/new-frontiers.css').is_file())
 teaser=parsed['index.html'].select_one('.mu-frontiers-teaser a')
 check('frontiers homepage teaser',teaser is not None and teaser.get('href')=='new-frontiers-in-social-justice.html')
-for filename,soup in [('index.html',parsed['index.html']),('portfolio.html',parsed['portfolio.html']),('new-frontiers-in-social-justice.html',nf)]:
- nav=soup.select_one('nav[aria-label="Main navigation"]')
+for filename in ['index.html','portfolio.html','new-frontiers-in-social-justice.html']:
+ nav_soup=BeautifulSoup((ROOT/filename).read_text(),'html.parser')
+ nav=nav_soup.select_one('nav[aria-label="Main navigation"]')
  links=nav.find_all('a') if nav else []
  check(filename+' three destinations',[x.get_text(' ',strip=True) for x in links]==['Home','Photography','New Frontiers'])
  expected={'index.html':'/','portfolio.html':'portfolio.html','new-frontiers-in-social-justice.html':'new-frontiers-in-social-justice.html'}[filename]
