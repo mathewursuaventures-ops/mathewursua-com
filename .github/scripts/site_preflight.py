@@ -96,7 +96,7 @@ try:
  urls=[n.text for n in ET.parse(ROOT/'sitemap.xml').findall('.//s:loc',ns)]
  public_letter_url="https://mathewursua.com/assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf"
  public_letter_path=ROOT/"assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf"
- check('sitemap canonical pages plus approved public PDF',urls==list(canonicals.values())+[public_letter_url],str(urls))
+ check('sitemap canonical pages plus approved public PDF',urls==list(canonicals.values())+['https://mathewursua.com/new-frontiers-in-social-justice.html',public_letter_url],str(urls))
  check('public Grace letter exists and matches verified SHA-256',public_letter_path.is_file() and hashlib.sha256(public_letter_path.read_bytes()).hexdigest()=="40f354c6aa4bc1216dc57933491ba3abe89f914a227747732007c0354acd185e",str(public_letter_path))
 except Exception as e:check('sitemap XML parsed',False,str(e))
 check('robots sitemap discovery', 'Sitemap: https://mathewursua.com/sitemap.xml' in (ROOT/'robots.txt').read_text())
@@ -119,6 +119,41 @@ check('ribbon patch exists as common CSS','v1.7.2 RC4' in css_current and 'posit
 check('charcoal motto retained',parsed['index.html'].select_one('.mu-hero-strap').get_text(' ',strip=True)=='WITNESS. INVESTIGATE. CHALLENGE.' and '#25292b !important' in css_current)
 check('shared fallback has hero and signature',all(x in js_current for x in ['.mu-hero-art img','.brand--signature img','raw.githubusercontent.com','mu-art-unavailable','mu-signature-text-fallback']))
 check('preflight covers both pages',len(parsed)==2)
+
+
+# Additional v1.8.0 acceptance checks, retaining all original page invariants.
+nf_source=(ROOT/'new-frontiers-in-social-justice.html').read_text()
+nf=BeautifulSoup(nf_source,'html.parser')
+nc=nf.find('link',rel='canonical')
+check('frontiers canonical',nc is not None and nc.get('href')=='https://mathewursua.com/new-frontiers-in-social-justice.html')
+check('frontiers editorial hero',nf.select_one('h1#nf-hero-heading') is not None and nf.select_one('main#main') is not None)
+check('frontiers sections',[e.get('id') for e in nf.select('.nf-chapter-kicker')]==['frontier-i','frontier-ii','frontier-iii'])
+check('frontiers full copy',len(nf.select_one('main#main').get_text(' ',strip=True).split())>6500)
+check('frontiers four images',len(nf.select('.nf-hero-art img'))==1 and len(nf.select('.nf-chapter-art img'))==3)
+for img in nf.find_all('img'):
+ src=img.get('src','')
+ check('frontiers image '+src,src.startswith('assets/') and (ROOT/src).is_file() and bool(img.get('alt')))
+for a in nf.select('a[href]'):
+ href=a.get('href','')
+ if href.startswith('#'):
+  check('frontiers anchor '+href,nf.find(id=href[1:]) is not None)
+ elif href.startswith('/') and href!='/':
+  local=href[1:].split('#',1)[0]
+  if local: check('frontiers absolute link '+href,(ROOT/local).is_file())
+ elif not href.startswith(('https:','http:','mailto:')):
+  local=href.split('#',1)[0]
+  if local: check('frontiers relative link '+href,(ROOT/local).is_file())
+check('frontiers CSS',nf.find('link',href='assets/new-frontiers.css') is not None and (ROOT/'assets/new-frontiers.css').is_file())
+teaser=parsed['index.html'].select_one('.mu-frontiers-teaser a')
+check('frontiers homepage teaser',teaser is not None and teaser.get('href')=='new-frontiers-in-social-justice.html')
+for filename,soup in [('index.html',parsed['index.html']),('portfolio.html',parsed['portfolio.html']),('new-frontiers-in-social-justice.html',nf)]:
+ nav=soup.select_one('nav[aria-label="Main navigation"]')
+ links=nav.find_all('a') if nav else []
+ check(filename+' three destinations',[x.get_text(' ',strip=True) for x in links]==['Home','Photography','New Frontiers'])
+ expected={'index.html':'/','portfolio.html':'portfolio.html','new-frontiers-in-social-justice.html':'new-frontiers-in-social-justice.html'}[filename]
+ check(filename+' active link',[x.get('href') for x in links if x.get('aria-current')=='page']==[expected])
+signature=(ROOT/'assets/signature-header.png').read_bytes()
+check('signature immutable Git blob',hashlib.sha1(b'blob '+str(len(signature)).encode()+bytes([0])+signature).hexdigest()=='8317c7e1cc776249f5b9ffa7c6dc864fb7e89c7f')
 
 # Report
 import tempfile
