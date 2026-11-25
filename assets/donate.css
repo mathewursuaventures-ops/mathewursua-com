@@ -1,0 +1,52 @@
+/* Baseline Web Foundry | Scoped local donation page styling, candidate only.
+   Existing assets/site.css remains the owner of global site and fixed ribbon styling. */
+.mu-donate-page{--d-gold:#ae7740;--d-ink:#202a2d;--d-pale:#f8f6f2;--d-line:#ddd7cc;color:#1c292d;background:#fff;padding-bottom:72px}
+.mu-donate-page *, .mu-donate-page *::before,.mu-donate-page *::after{box-sizing:border-box}
+.mu-donate-page .wrap{width:min(100% - 44px,1160px);margin-inline:auto}
+.mu-donate-page .donate-hero{background:linear-gradient(115deg,#172a2e,#26383b);color:#fefaf5;padding:70px 0 74px}
+.mu-donate-page .donate-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);align-items:center;gap:45px}
+.mu-donate-page .eyebrow,.mu-donate-page .crumb,.mu-donate-page .driver-kicker{text-transform:uppercase;font:700 .77rem/1.5 system-ui,sans-serif;letter-spacing:.14em;color:#ad753f}
+.mu-donate-page .donate-hero .eyebrow{color:#e4b784}
+.mu-donate-page h1,.mu-donate-page h2{font-family:Georgia,serif;letter-spacing:-.035em;line-height:1.14}
+.mu-donate-page .donate-hero h1{font-size:clamp(2.5rem,5.1vw,4.3rem);font-weight:600;margin:.4em 0 .45em;max-width:20ch}
+.mu-donate-page .donate-hero p{color:#e5e6e3;max-width:67ch}
+.mu-donate-page .donate-lede{font-size:1.07rem;line-height:1.7}
+.mu-donate-page .donate-panel{border:1px solid #ffffff4d;background:#ffffff10;border-radius:16px;padding:26px;box-shadow:0 15px 40px #0002}
+.mu-donate-page .donate-panel h2{font-size:1.5rem;color:#fff;margin:0 0 15px}
+.mu-donate-page .donate-panel ul{padding-left:1.25em;line-height:1.7;color:#f7f5f1}
+.mu-donate-page .donate-panel li{margin-bottom:10px}
+.mu-donate-page .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:21px}
+.mu-donate-page .cta-row .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #e5ae76;border-radius:4px;background:#b5814c;color:#fff;text-decoration:none;padding:11px 20px;font-size:.93rem;line-height:1.4;margin:0}
+.mu-donate-page .cta-row .btn.alt{background:transparent;color:#fff}
+.mu-donate-page .donate-section{padding-top:57px;padding-bottom:10px}
+.mu-donate-page .donate-methods{border-bottom:1px solid var(--d-line);padding-bottom:42px}
+.mu-donate-page .donate-methods-copy{max-width:800px;margin-bottom:30px}
+.mu-donate-page .donate-section h2{font-size:clamp(1.6rem,3vw,2.45rem);margin:.15em 0 .45em}
+.mu-donate-page .donation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.mu-donate-page .donation-card{background:#fff;border:1px solid #d9d8d4;border-top:4px solid #bc8c51;border-radius:8px;padding:21px;min-height:260px;display:flex;flex-direction:column;gap:9px;box-shadow:0 4px 15px #1725280b}
+.mu-donate-page .donation-card h2{font:700 1.25rem/1.3 system-ui,sans-serif;margin:.4em 0}
+.mu-donate-page .donation-card p{font-size:.94rem;margin:0}
+.mu-donate-page .donation-logo{font-weight:800;font-size:1.2rem;color:#25373b;min-height:26px}
+.mu-donate-page .cashapp-wordmark{color:#16852e}.mu-donate-page .venmo-wordmark{color:#1470b1}.mu-donate-page .zelle-wordmark{color:#7654b5}
+.mu-donate-page .donation-copy{flex:1}
+.mu-donate-page .donation-button{display:block;text-align:center;background:#20383b;color:#fff;text-decoration:none;padding:11px 12px;border-radius:4px;font-weight:700;font-size:.91rem;line-height:1.4}
+.mu-donate-page .donation-button:hover{background:#9b6336;color:#fff}
+.mu-donate-page .donation-status{display:block;text-align:center;border:1px solid #b0aca6;color:#565451;padding:11px 12px;border-radius:4px;background:#f2eee8;font-weight:700;font-size:.91rem}
+.mu-donate-page .donation-handle{text-align:center;font-weight:700;overflow-wrap:anywhere;font-size:.86rem;color:#375358}
+.mu-donate-page .donation-disabled{background:#f9f8f6;border-top-color:#aaa29a}
+.mu-donate-page .donation-qr-mini{text-align:center}.mu-donate-page .donation-qr-mini img{max-width:135px;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+.mu-donate-page .section-article{max-width:860px;margin:auto}
+.mu-donate-page .section-article h2{font-size:clamp(2rem,4vw,3.4rem)}
+.mu-donate-page .section-article .lead{font-size:1.14rem;line-height:1.7}
+.mu-donate-page .donate-callout{border-left:4px solid #a26b36;background:#f5f1e9;padding:20px 25px;margin:25px 0}
+.mu-donate-page .donate-grid-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.mu-donate-page .donate-card{border:1px solid #e3dfd8;border-radius:7px;background:#faf8f4;padding:25px 27px}
+.mu-donate-page .donate-card h2{font-size:1.8rem}
+.mu-donate-page p,.mu-donate-page li{line-height:1.7}
+.mu-donate-page a:focus-visible{outline:3px solid #d4934e;outline-offset:4px}
+.mu-zelle-page{min-height:60vh}
+.mu-zelle-page .donate-section{max-width:950px}
+.mu-zelle-page img[src$="zelle-qr.svg"]{max-width:min(90vw,320px);height:auto;display:block;margin:20px auto}
+@media(max-width:960px){.mu-donate-page .donation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mu-donate-page .donate-hero-grid{grid-template-columns:1fr}.mu-donate-page .donate-hero{padding:52px 0}}
+@media(max-width:640px){.mu-donate-page .wrap{width:min(100% - 30px,1160px)}.mu-donate-page .donation-grid,.mu-donate-page .donate-grid-two{grid-template-columns:1fr}.mu-donate-page .donate-section{padding-top:38px}.mu-donate-page .donate-hero h1{font-size:2.45rem}.mu-donate-page .donate-panel{padding:20px}.mu-donate-page .donation-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.mu-donate-page *{scroll-behavior:auto!important}}
