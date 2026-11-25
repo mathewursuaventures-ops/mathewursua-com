@@ -96,7 +96,7 @@ try:
  urls=[n.text for n in ET.parse(ROOT/'sitemap.xml').findall('.//s:loc',ns)]
  public_letter_url="https://mathewursua.com/assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf"
  public_letter_path=ROOT/"assets/public/letters/2026-11-17-shane-grace-photo-editor-open-letter.pdf"
- check('sitemap canonical pages plus approved public PDF',urls==list(canonicals.values())+['https://mathewursua.com/new-frontiers-in-social-justice.html',public_letter_url],str(urls))
+ check('sitemap canonical pages plus approved public PDF',urls==list(canonicals.values())+['https://mathewursua.com/new-frontiers-in-social-justice.html',public_letter_url,'https://mathewursua.com/donate.html','https://mathewursua.com/zelle.html'],str(urls))
  check('public Grace letter exists and matches verified SHA-256',public_letter_path.is_file() and hashlib.sha256(public_letter_path.read_bytes()).hexdigest()=="40f354c6aa4bc1216dc57933491ba3abe89f914a227747732007c0354acd185e",str(public_letter_path))
 except Exception as e:check('sitemap XML parsed',False,str(e))
 check('robots sitemap discovery', 'Sitemap: https://mathewursua.com/sitemap.xml' in (ROOT/'robots.txt').read_text())
